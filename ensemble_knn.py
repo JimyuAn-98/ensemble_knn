@@ -39,7 +39,7 @@ y = np.array(dt['label'])       #得到仅有标签的矩阵，作为分类运�
 X_train, X_test, Y_train, Y_test = ms.train_test_split(x,y,test_size=0.2,random_state=7)    #划分出训练集与测试集
 
 #基于KNN的组合分类器
-for k in range(1,11,2):
+for k in range(1,11):
     clf = BaggingClassifier(base_estimator=KNeighborsClassifier(n_neighbors=k),n_estimators=9)
     clf.fit(X_train, Y_train.ravel())
     #获得准确率、混淆矩阵
